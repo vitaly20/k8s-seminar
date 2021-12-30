@@ -31,4 +31,4 @@ spec:
       volumes:
       - name: app-storage
         hostPath:
-          path: /mnt/files
+          path: /tmp/files
