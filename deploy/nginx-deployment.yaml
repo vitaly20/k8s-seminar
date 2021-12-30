@@ -5,8 +5,13 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: nginx  
+      app: nginx
   replicas: 2 # tells deployment to run 2 pods matching the template using the ReplicaSet
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
   template: # create pods using pod definition in this template
     metadata:
       # unlike pod-nginx.yaml, the name is not included in the meta data as a unique name is
