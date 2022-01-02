@@ -9,9 +9,5 @@ spec:
   - name: http    # Setting multiple ports listterns 
     protocol: TCP
     port: 80
-    targetPort: 9376
-  - name: https
-    protocol: TCP
-    port: 443
-    targetPort: 9388
+    targetPort: 8080 #need to match!!!!!!!!!! to the container in the deployment
   type: LoadBalancer
