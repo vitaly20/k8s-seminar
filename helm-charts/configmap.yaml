@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-configmap
+data:
+  {{ if eq ( .Values.role | toString ) "proxy" }}
+  dbname: {{ .Values.database_prod.dbname }}
+  {{ else }}
+  dbname: {{ .Values.database_test.dbname }}
+  {{ end }}
+  dbtable: {{ .Values.database_prod.dbtable }}
