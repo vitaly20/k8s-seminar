@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-{{ .Values.env }}
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+{{ if eq ( .Values.env | toString ) "prod" }}
+{{- include "prod" . }}
+{{ else }}
+{{- include "qa" . }}
+{{ end }}
