@@ -1,0 +1,11 @@
+prod:
+  replicas: 2
+  repo: yanivomc
+  image: spring-music
+  tag: no_db-v01
+
+qa:
+  replicas: 1
+  repo: yanivomc
+  image: spring-music
+  tag: latest
