@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: frontend
+  labels:
+    app: spring
+    tier: fe
+spec:
+  replicas: 2
+  selector:  # Using the selector we tell our replicaset which pods to manage
+    matchLabels:
+      tier: frontend
+  template:   # here we define our PODS Specs (k8s uses go template in the background)
+    metadata:
+      labels:
+        tier: frontend
+    spec:
+      containers:
+      - name: cuda-test
+        image: yanivomc/spring-music:latest
+      nodeSelector:
+        env: prod
