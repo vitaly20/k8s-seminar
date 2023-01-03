@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-pod-affinity
+  labels:
+    app: spring-music
+    tier: frontend
+spec:
+  replicas: 4
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: spring-music
+  template:
+    metadata:
+      labels:
+        app: spring-music
+    spec:
+      containers:
+      - name: spring-music
+        image: nginx:latest
